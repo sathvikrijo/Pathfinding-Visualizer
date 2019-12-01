@@ -17,22 +17,26 @@ public class Window extends JPanel implements MouseListener, MouseMotionListener
     Cell start, end, selectedCell, temp;
     List<Cell> borders;
     HashMap<Cell, Boolean> exists;
+    ControlHandler ch;
 
     public Window() {
-        cellSize = 25;
+        cellSize = 16;
 
         window = new JFrame();
         window.setContentPane(this);
-        window.getContentPane().setPreferredSize(new Dimension(700, 600));
+        window.getContentPane().setPreferredSize(new Dimension(702, 608));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+        window.setResizable(false);
 
         setFocusable(true);
 
         borders = new LinkedList<>();
         exists = new HashMap<>();
+
+        //ch = new ControlHandler(this);
 
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -228,5 +232,9 @@ public class Window extends JPanel implements MouseListener, MouseMotionListener
 
     public static void main(String[] args) {
         new Window();
+    }
+
+    public void changeSpeed(){
+
     }
 }
